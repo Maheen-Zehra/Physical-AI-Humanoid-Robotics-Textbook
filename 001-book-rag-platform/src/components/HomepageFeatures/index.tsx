@@ -15,10 +15,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
   title: 'Physical AI and Humanoid Robotics',
-   img: {
-        alt: 'My Site tab',
-        src: 'img/ai1.png',
-      },
+  
   description: (
     <>
      Humanoid robots combine Physical AI with human-like form factors to
@@ -28,10 +25,7 @@ const FeatureList: FeatureItem[] = [
 },
   {
     title: 'Physical AI and Humanoid Robotics',
-     img: {
-        alt: 'My Site Logo',
-        src: 'img/ai2.png',
-      },
+     
     description: (
       <>
         Physical AI enables machines to perceive, reason, 
@@ -41,10 +35,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Physical AI and Humanoid Robotics',
-     img: {
-        alt: 'My Site Logo',
-        src: 'img/ai3.png',
-      },
+   
     description: (
       <>
        Together, Physical AI and humanoid robotics represent the convergence of perception, cognition,
