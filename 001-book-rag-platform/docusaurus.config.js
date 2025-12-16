@@ -13,7 +13,11 @@ const config = {
     v4: true, // Compatibility with future Docusaurus v4
   },
 
+<<<<<<< HEAD
    url: 'https://Maheen-Zehra.github.io',
+=======
+  url: 'https://Maheen-Zehra.github.io',
+>>>>>>> 98c68933d5e7463b01916fa9749a04e3e689e065
   baseUrl: '/Physical-AI-Humanoid-Robotics-Textbook/',
 
   organizationName: 'facebook',
