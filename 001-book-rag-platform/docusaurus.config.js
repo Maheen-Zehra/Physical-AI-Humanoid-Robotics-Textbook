@@ -13,8 +13,8 @@ const config = {
     v4: true, // Compatibility with future Docusaurus v4
   },
 
-  url: 'https://your-docusaurus-site.example.com',
-  baseUrl: '/',
+   url: 'https://Maheen-Zehra.github.io',
+  baseUrl: '/Physical-AI-Humanoid-Robotics-Textbook/',
 
   organizationName: 'facebook',
   projectName: 'docusaurus',
@@ -52,7 +52,7 @@ const config = {
   ],
 
   themeConfig: {
-    image: 'img/loggo.jpeg',
+    image: 'img/loggo.png',
     colorMode: {
       respectPrefersColorScheme: true,
     },
@@ -61,7 +61,7 @@ const config = {
       title: 'Physical AI & Humanoid Robotics Textbook',
       logo: {
         alt: 'My Site Logo',
-        src: 'img/logo.jpeg',
+        src: 'img/logo.png',
       },
       items: [
         {
