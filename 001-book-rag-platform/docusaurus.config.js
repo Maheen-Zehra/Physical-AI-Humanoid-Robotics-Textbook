@@ -14,7 +14,7 @@ const config = {
   },
 
   url: 'https://your-docusaurus-site.example.com',
-  baseUrl: '/',
+  baseUrl: '/Physical-AI-Humanoid-Robotics-Textbook/',
 
   organizationName: 'facebook',
   projectName: 'docusaurus',
