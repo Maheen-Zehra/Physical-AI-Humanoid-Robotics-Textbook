@@ -1,0 +1,139 @@
+openapi: 3.0.0
+info:
+  title: RAG Chat API
+  description: API for the RAG (Retrieval-Augmented Generation) chatbot functionality
+  version: 1.0.0
+servers:
+  - url: /api
+    description: Local development server
+paths:
+  /chat:
+    post:
+      summary: Process user question and return response
+      description: Takes a user question, retrieves relevant content from book, and optionally synthesizes an answer using LLM
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - question
+              properties:
+                question:
+                  type: string
+                  description: The user's question about the book content
+                  example: "Explain how ROS 2 nodes communicate with each other?"
+                max_matches:
+                  type: integer
+                  description: Maximum number of content matches to retrieve (default 3)
+                  default: 3
+                  example: 3
+                use_llm:
+                  type: boolean
+                  description: Whether to use LLM synthesis for the answer (optional)
+                  default: false
+                  example: true
+      responses:
+        '200':
+          description: Successful response with retrieved content and answer
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  matches:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        file:
+                          type: string
+                          description: Source file of the match
+                        title:
+                          type: string
+                          description: Title of the content section
+                        excerpt:
+                          type: string
+                          description: Excerpt from the content
+                        score:
+                          type: number
+                          format: float
+                          description: Similarity score of the match
+                  answer:
+                    type: string
+                    description: The final answer (either retrieved or LLM-synthesized)
+                  sources:
+                    type: array
+                    items:
+                      type: string
+                    description: List of sources used to generate the answer
+        '400':
+          description: Bad request - invalid input
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message
+components:
+  schemas:
+    QueryRequest:
+      type: object
+      required:
+        - question
+      properties:
+        question:
+          type: string
+          description: The user's question about the book content
+        max_matches:
+          type: integer
+          description: Maximum number of content matches to retrieve
+          default: 3
+        use_llm:
+          type: boolean
+          description: Whether to use LLM synthesis for the answer
+          default: false
+    QueryResponse:
+      type: object
+      properties:
+        matches:
+          type: array
+          items:
+            $ref: '#/components/schemas/Match'
+        answer:
+          type: string
+          description: The final answer (either retrieved or LLM-synthesized)
+        sources:
+          type: array
+          items:
+            type: string
+          description: List of sources used to generate the answer
+    Match:
+      type: object
+      properties:
+        file:
+          type: string
+          description: Source file of the match
+        title:
+          type: string
+          description: Title of the content section
+        excerpt:
+          type: string
+          description: Excerpt from the content
+        score:
+          type: number
+          format: float
+          description: Similarity score of the match

@@ -1,0 +1,12 @@
+.features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.featureSvg {
+  height: 200px;
+  width: 200px;
+}

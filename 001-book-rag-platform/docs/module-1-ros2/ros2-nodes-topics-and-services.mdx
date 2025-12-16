@@ -1,0 +1,41 @@
+
+---
+ ROS 2 Nodes, Topics, and Services
+---
+---
+
+### Nodes
+A **node** is a single-purpose program in ROS 2.
+
+Examples:
+- camera node
+- navigation node
+- motor controller
+
+Nodes run independently and communicate through ROS interfaces.
+
+---
+
+### Topics
+Topics use a **publish / subscribe** model.
+
+- Sensors publish data
+- Controllers subscribe to data
+- No direct dependency between nodes
+
+Example topics:
+- `/camera/image`
+- `/cmd_vel`
+
+---
+
+### Services
+Services use a **request / response** model.
+
+Used for:
+- reset commands
+- calibration
+- mode switching
+
+Together, nodes, topics, and services form the communication backbone of ROS 2.
+---
